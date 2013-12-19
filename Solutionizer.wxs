@@ -94,6 +94,10 @@
             <File Id="Solutionizer.Framework.dll" Name="Solutionizer.Framework.dll" Source="Solutionizer/bin/Debug/Solutionizer.Framework.dll"/>
             <RegistryValue Root="HKCU" Key="SOFTWARE\ThomasFreudenberg\Solutionizer" Name="Solutionizer.Framework.dll" Type="integer" Value="1" KeyPath="yes"/>
           </Component>
+          <Component Id="GongSolutions.Wpf.DragDrop.dll" Guid="{EE8E30C0-845B-422D-B708-C222188AD9C8}">
+            <File Id="GongSolutions.Wpf.DragDrop.dll" Name="GongSolutions.Wpf.DragDrop.dll" Source="Solutionizer/bin/Debug/GongSolutions.Wpf.DragDrop.dll"/>
+            <RegistryValue Root="HKCU" Key="SOFTWARE\ThomasFreudenberg\Solutionizer" Name="GongSolutions.Wpf.DragDrop.dll" Type="integer" Value="1" KeyPath="yes"/>
+          </Component>
         </Directory>
       </Directory>
       
@@ -110,6 +114,7 @@
       <ComponentRef Id="RestSharp.dll"/>
       <ComponentRef Id="Autofac.dll"/>
       <ComponentRef Id="Solutionizer.Framework.dll"/>
+      <ComponentRef Id="GongSolutions.Wpf.DragDrop.dll"/>
     </Feature>
 
     <!-- no downgrade -->
