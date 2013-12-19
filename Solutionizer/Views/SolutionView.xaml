@@ -11,6 +11,7 @@
              xmlns:ViewModels="clr-namespace:Solutionizer.ViewModels" xmlns:Views="clr-namespace:Solutionizer.Views"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:Commands="clr-namespace:Solutionizer.Commands"
+             xmlns:DragDrop="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
              d:DataContext="{d:DesignInstance Type=ViewModels:SolutionViewModel}"
              d:DesignHeight="300" d:DesignWidth="300">
   <Grid>
@@ -66,8 +67,8 @@
         ItemsSource="{Binding SolutionItems}"
         VirtualizingStackPanel.IsVirtualizing="True"
         VirtualizingStackPanel.VirtualizationMode="Recycling" 
-        Helper:DragDropHelper.IsDropTarget="True" 
-        Helper:DragDropHelper.DropCommand="{Binding DropCommand}">
+        DragDrop:DragDrop.IsDropTarget="True" 
+        DragDrop:DragDrop.DropHandler="{Binding}">
         <TreeView.Resources>
           <!-- 
           Though the direct binding of RemoveSelectedItemCommand to InputBindingTrigger did work, it always

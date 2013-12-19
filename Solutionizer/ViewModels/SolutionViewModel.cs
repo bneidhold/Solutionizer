@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using GongSolutions.Wpf.DragDrop;
 using NLog;
 using Ookii.Dialogs.Wpf;
 using Solutionizer.Commands;
@@ -16,7 +17,7 @@ using Solutionizer.Models;
 using Solutionizer.Services;
 
 namespace Solutionizer.ViewModels {
-    public class SolutionViewModel : PropertyChangedBase {
+    public class SolutionViewModel : PropertyChangedBase, IDropTarget {
         public delegate SolutionViewModel Factory(string rootPath, IDictionary<string, Project> projects);
 
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
@@ -24,7 +25,6 @@ namespace Solutionizer.ViewModels {
         private readonly IStatusMessenger _statusMessenger;
         private readonly string _rootPath;
         private readonly IDictionary<string, Project> _projects;
-        private readonly ICommand _dropCommand;
         private readonly ICommand _removeSelectedItemCommand;
         private readonly ICommand _launchCommand;
         private readonly ICommand _saveCommand;
@@ -42,7 +42,6 @@ namespace Solutionizer.ViewModels {
             _rootPath = rootPath;
             _projects = projects;
             _settings = settings;
-            _dropCommand = new RelayCommand<object>(OnDrop, obj => obj is ProjectViewModel);
             _removeSelectedItemCommand = new RelayCommand(RemoveSolutionItem);
             _settings.PropertyChanged += (sender, args) => {
                 if (args.PropertyName == "ShowLaunchElevatedButton") {
@@ -57,8 +56,14 @@ namespace Solutionizer.ViewModels {
             _clearCommand = new RelayCommand(Clear, () => _solutionRoot.Items.Any());
         }
 
-        private void OnDrop(object node) {
-            var project = ((ProjectViewModel) node).Project;
+        public void DragOver(IDropInfo dropInfo) {
+            if (dropInfo.Data is ProjectViewModel) {
+                dropInfo.Effects = DragDropEffects.Copy;
+            }
+        }
+
+        public void Drop(IDropInfo dropInfo) {
+            var project = ((ProjectViewModel)dropInfo.Data).Project;
             project.Load();
             AddProject(project);
         }
@@ -136,10 +141,6 @@ namespace Solutionizer.ViewModels {
             IsDirty = false;
             _statusMessenger.Show("Solution cleared.");
             Refresh();
-        }
-
-        public ICommand DropCommand {
-            get { return _dropCommand; }
         }
 
         public ICommand LaunchCommand {

@@ -50,6 +50,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Autofac.3.1.5\lib\net40\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="GongSolutions.Wpf.DragDrop">
+      <HintPath>..\packages\gong-wpf-dragdrop.0.1.3.11\lib\net40\GongSolutions.Wpf.DragDrop.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=0.12.0.10, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MahApps.Metro.0.12.0.10-ALPHA\lib\net45\MahApps.Metro.dll</HintPath>
@@ -134,11 +137,8 @@
     <Compile Include="Converters\Shell32IconExtension.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Helper\DragDropHelper.cs" />
-    <Compile Include="Helper\DraggedAdorner.cs" />
     <Compile Include="Helper\FileSystem.cs" />
     <Compile Include="Helper\Icons.cs" />
-    <Compile Include="Helper\InsertionAdorner.cs" />
     <Compile Include="Helper\TfsHelper.cs" />
     <Compile Include="Infrastructure\WindowStatePersistence.cs" />
     <Compile Include="Models\Project.cs" />
