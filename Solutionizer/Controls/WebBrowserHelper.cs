@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Solutionizer.Helper {
+namespace Solutionizer.Controls {
     public class WebBrowserHelper {
         public static readonly DependencyProperty BodyProperty =
             DependencyProperty.RegisterAttached("Body", typeof(string), typeof(WebBrowserHelper), new PropertyMetadata(OnBodyChanged));

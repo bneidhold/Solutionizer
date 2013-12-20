@@ -3,7 +3,7 @@ using System.Windows.Documents;
 using System.Windows.Interactivity;
 using System.Windows.Navigation;
 
-namespace Solutionizer.Infrastructure {
+namespace Solutionizer.Behaviors {
     public class HyperlinkNavigateBehavior : Behavior<Hyperlink> {
         protected override void OnAttached() {
             base.OnAttached();

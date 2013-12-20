@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.Win32;
 using Solutionizer.Services;
 
-namespace Solutionizer.Helper {
+namespace Solutionizer.Infrastructure {
     public static class VisualStudioHelper {
         public static VisualStudioVersion DetectVersion() {
             using (var key = Registry.ClassesRoot.OpenSubKey("VisualStudio.DTE.12.0")) {
@@ -57,9 +57,14 @@ namespace Solutionizer.Helper {
                 Environment.Is64BitOperatingSystem ? @"Wow6432Node\" : String.Empty,
                 GetVersionKey(visualStudioVersion));
             using (var key = Registry.LocalMachine.OpenSubKey(regPath)) {
-                var installPath = key.GetValue("InstallDir") as string;
-                return Path.Combine(installPath, "devenv.exe");
+                if (key != null) {
+                    var installPath = key.GetValue("InstallDir") as string;
+                    if (installPath != null) {
+                        return Path.Combine(installPath, "devenv.exe");
+                    }
+                }
             }
+            return null;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interactivity;
 
-namespace Solutionizer.Infrastructure {
+namespace Solutionizer.Behaviors {
     public class InputBindingTrigger : TriggerBase<FrameworkElement>, ICommand {
         public InputBinding InputBinding {
             get { return (InputBinding) GetValue(InputBindingProperty); }

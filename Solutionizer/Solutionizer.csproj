@@ -102,15 +102,15 @@
     <Compile Include="Controls\EllipsisTextBox.cs" />
     <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Converters\MarkdownToFlowDocumentConverter.cs" />
-    <Compile Include="Helper\HtmlToXamlConverter.cs" />
-    <Compile Include="Helper\Markdown.cs" />
-    <Compile Include="Helper\TreeViewHelper.cs" />
-    <Compile Include="Helper\VisualStudioHelper.cs" />
-    <Compile Include="Helper\WebBrowserHelper.cs" />
+    <Compile Include="Converters\HtmlToXamlConverter.cs" />
+    <Compile Include="Infrastructure\Markdown.cs" />
+    <Compile Include="Extensions\ItemsControlExtensions.cs" />
+    <Compile Include="Infrastructure\VisualStudioHelper.cs" />
+    <Compile Include="Controls\WebBrowserHelper.cs" />
     <Compile Include="Infrastructure\AppEnvironment.cs" />
-    <Compile Include="Infrastructure\ContextMenuOnLeftClickBehavior.cs" />
-    <Compile Include="Infrastructure\HyperlinkNavigateBehavior.cs" />
-    <Compile Include="Infrastructure\MultipleItemSelectionAttachedBehavior.cs" />
+    <Compile Include="Behaviors\ContextMenuOnLeftClickBehavior.cs" />
+    <Compile Include="Behaviors\HyperlinkNavigateBehavior.cs" />
+    <Compile Include="Behaviors\MultipleItemSelectionAttachedBehavior.cs" />
     <Compile Include="Infrastructure\ReleaseInfoReader.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -122,8 +122,8 @@
     <Compile Include="Services\MostRecentUsedFoldersRepository.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\FileScanningViewModel.cs" />
-    <Compile Include="Infrastructure\BindableSelectedItemBehavior .cs" />
-    <Compile Include="Infrastructure\InputBindingTrigger.cs" />
+    <Compile Include="Behaviors\BindableSelectedItemBehavior .cs" />
+    <Compile Include="Behaviors\InputBindingTrigger.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="Models\ProjectFolder.cs" />
     <Compile Include="ViewModels\ProjectRepositoryViewModel.cs" />
@@ -139,9 +139,9 @@
     <Compile Include="Converters\Shell32IconExtension.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Helper\FileSystem.cs" />
-    <Compile Include="Helper\Icons.cs" />
-    <Compile Include="Helper\TfsHelper.cs" />
+    <Compile Include="Infrastructure\FileSystem.cs" />
+    <Compile Include="Infrastructure\Icons.cs" />
+    <Compile Include="Infrastructure\TfsHelper.cs" />
     <Compile Include="Infrastructure\WindowStatePersistence.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Services\Settings.cs" />

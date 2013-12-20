@@ -1,13 +1,12 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Media;
-using Solutionizer.Extensions;
 
-namespace Solutionizer.Helper {
-    public static class TreeViewHelper {
-        public static TreeViewItem GetTreeViewItem(ItemsControl container, object item) {
+namespace Solutionizer.Extensions {
+    public static class ItemsControlExtensions {
+        public static TContainer GetContainer<TContainer>(this ItemsControl container, object item) where TContainer : ItemsControl {
             if (container != null) {
                 if (container.DataContext == item) {
-                    return container as TreeViewItem;
+                    return container as TContainer;
                 }
 
                 // Expand the current container
@@ -41,12 +40,12 @@ namespace Solutionizer.Helper {
 
                 // Ensure that the generator for this panel has been created.
 #pragma warning disable 168
+                // ReSharper disable once UnusedVariable
                 var children = itemsHostPanel.Children;
 #pragma warning restore 168
 
                 for (int i = 0, count = container.Items.Count; i < count; i++) {
-                    var subContainer = (TreeViewItem) container.ItemContainerGenerator.
-                        ContainerFromIndex(i);
+                    var subContainer = (TContainer)container.ItemContainerGenerator.ContainerFromIndex(i);
                     if (subContainer == null) {
                         continue;
                     }
@@ -54,7 +53,7 @@ namespace Solutionizer.Helper {
                     subContainer.BringIntoView();
 
                     // Search the next level for the object.
-                    var resultContainer = GetTreeViewItem(subContainer, item);
+                    var resultContainer = GetContainer<TContainer>(subContainer, item);
                     if (resultContainer != null) {
                         return resultContainer;
                     } else {

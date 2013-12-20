@@ -10,6 +10,7 @@
         xmlns:ViewModels="clr-namespace:Solutionizer.ViewModels"
         xmlns:Framework="clr-namespace:Solutionizer.Framework;assembly=Solutionizer.Framework"
         xmlns:Views="clr-namespace:Solutionizer.Views"
+        xmlns:Behaviors="clr-namespace:Solutionizer.Behaviors"
         mc:Ignorable="d" 
         Infrastructure:WindowStatePersistence.Settings="{Binding Settings}"  
         TextOptions.TextFormattingMode="Display"
@@ -38,7 +39,7 @@
         Visibility="{Binding AreUpdatesAvailable, Converter={StaticResource BooleanToVisibilityConverter}}"/>
       <Button ToolTip="Tools and Options">
         <i:Interaction.Behaviors>
-          <Infrastructure:ContextMenuOnLeftClickBehavior/>
+          <Behaviors:ContextMenuOnLeftClickBehavior/>
         </i:Interaction.Behaviors>
         <Button.ContextMenu>
           <ContextMenu>

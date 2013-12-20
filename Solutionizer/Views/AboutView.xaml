@@ -7,6 +7,7 @@
              xmlns:Infrastructure="clr-namespace:Solutionizer.Infrastructure"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Behaviors="clr-namespace:Solutionizer.Behaviors"
              mc:Ignorable="d" 
              Header="About Solutionizer"
              CloseCommand="{Binding CloseCommand}"
@@ -46,7 +47,7 @@
       <Run>Found a problem? </Run>
       <Hyperlink NavigateUri="https://github.com/thoemmi/Solutionizer/issues">
         <i:Interaction.Behaviors>
-            <Infrastructure:HyperlinkNavigateBehavior/>
+            <Behaviors:HyperlinkNavigateBehavior/>
         </i:Interaction.Behaviors>
         Please write an error report.</Hyperlink>
     </TextBlock>
@@ -139,7 +140,7 @@
                 <TextBlock>
                   <Hyperlink NavigateUri="{Binding Uri}" ToolTip="{Binding Uri}">
                     <i:Interaction.Behaviors>
-                      <Infrastructure:HyperlinkNavigateBehavior/>
+                      <Behaviors:HyperlinkNavigateBehavior/>
                     </i:Interaction.Behaviors>
                     <Run Text="{Binding Name}"></Run>
                   </Hyperlink>

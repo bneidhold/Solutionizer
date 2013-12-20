@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using NLog;
 
-namespace Solutionizer.Helper {
+namespace Solutionizer.Infrastructure {
     public static class TfsHelper {
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 

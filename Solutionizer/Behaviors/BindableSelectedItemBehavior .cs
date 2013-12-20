@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interactivity;
-using Solutionizer.Helper;
+using Solutionizer.Extensions;
 
-namespace Solutionizer.Infrastructure {
+namespace Solutionizer.Behaviors {
     public class BindableSelectedItemBehavior : Behavior<TreeView> {
         public object SelectedItem {
             get { return GetValue(SelectedItemProperty); }
@@ -19,7 +19,7 @@ namespace Solutionizer.Infrastructure {
             var tvi = e.NewValue as TreeViewItem;
             if (tvi == null) {
                 var tree = ((BindableSelectedItemBehavior) sender).AssociatedObject;
-                tvi = TreeViewHelper.GetTreeViewItem(tree, e.NewValue);
+                tvi = tree.GetContainer<TreeViewItem>(e.NewValue);
             }
             if (tvi != null) {
                 tvi.IsSelected = true;

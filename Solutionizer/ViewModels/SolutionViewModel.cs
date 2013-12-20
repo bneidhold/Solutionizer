@@ -12,7 +12,7 @@ using Ookii.Dialogs.Wpf;
 using Solutionizer.Commands;
 using Solutionizer.Extensions;
 using Solutionizer.Framework;
-using Solutionizer.Helper;
+using Solutionizer.Infrastructure;
 using Solutionizer.Models;
 using Solutionizer.Services;
 

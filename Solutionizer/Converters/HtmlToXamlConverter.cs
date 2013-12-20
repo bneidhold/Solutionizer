@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Xml;
 
-namespace Solutionizer.Helper {
+namespace Solutionizer.Converters {
     // This code was taken from MSDN as an example of converting HTML to XAML.
     //
     // I've combined all the classes together and made some spelling corrections.

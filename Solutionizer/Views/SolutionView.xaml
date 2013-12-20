@@ -5,13 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Models="clr-namespace:Solutionizer.Models" 
              xmlns:Converters="clr-namespace:Solutionizer.Converters" 
-             xmlns:Helper="clr-namespace:Solutionizer.Helper"
              mc:Ignorable="d" 
-             xmlns:Infrastructure="clr-namespace:Solutionizer.Infrastructure"
              xmlns:ViewModels="clr-namespace:Solutionizer.ViewModels" xmlns:Views="clr-namespace:Solutionizer.Views"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:Commands="clr-namespace:Solutionizer.Commands"
              xmlns:DragDrop="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
+             xmlns:Behaviors="clr-namespace:Solutionizer.Behaviors"
              d:DataContext="{d:DesignInstance Type=ViewModels:SolutionViewModel}"
              d:DesignHeight="300" d:DesignWidth="300">
   <Grid>
@@ -78,15 +77,15 @@
           <Commands:CommandProxy x:Key="RemoveSelectedItemCommandProxy" Command="{Binding RemoveSelectedItemCommand}" />
         </TreeView.Resources>
         <i:Interaction.Behaviors>
-          <Infrastructure:BindableSelectedItemBehavior SelectedItem="{Binding SelectedItem}" />
+          <Behaviors:BindableSelectedItemBehavior SelectedItem="{Binding SelectedItem}" />
         </i:Interaction.Behaviors>
         <i:Interaction.Triggers>
-          <Infrastructure:InputBindingTrigger>
-            <Infrastructure:InputBindingTrigger.InputBinding>
+          <Behaviors:InputBindingTrigger>
+            <Behaviors:InputBindingTrigger.InputBinding>
               <KeyBinding Key="Delete"/>
-            </Infrastructure:InputBindingTrigger.InputBinding>
+            </Behaviors:InputBindingTrigger.InputBinding>
             <i:InvokeCommandAction Command="{StaticResource RemoveSelectedItemCommandProxy}" />
-          </Infrastructure:InputBindingTrigger>
+          </Behaviors:InputBindingTrigger>
         </i:Interaction.Triggers>
       </TreeView>
     </Border>

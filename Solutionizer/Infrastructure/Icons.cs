@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
-namespace Solutionizer.Helper {
+namespace Solutionizer.Infrastructure {
     public static class Icons {
         [DllImport("shell32.dll", CharSet = CharSet.Auto)]
         private static extern int ExtractIconEx(string szFileName, int nIconIndex,

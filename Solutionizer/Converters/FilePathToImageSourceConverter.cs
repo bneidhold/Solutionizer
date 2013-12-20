@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
-using Solutionizer.Helper;
+using Solutionizer.Infrastructure;
 
 namespace Solutionizer.Converters {
     public class FilePathToImageSourceConverter : IValueConverter {

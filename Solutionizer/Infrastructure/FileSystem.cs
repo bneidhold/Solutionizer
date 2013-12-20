@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Solutionizer.Helper {
+namespace Solutionizer.Infrastructure {
     public static class FileSystem {
         public static string GetRelativePath(string fromPath, string toPath) {
             var fromAttr = GetPathAttribute(fromPath);

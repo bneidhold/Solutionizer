@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Solutionizer.Framework;
-using Solutionizer.Helper;
+using Solutionizer.Infrastructure;
 
 namespace Solutionizer.Services {
     public class Settings : PropertyChangedBase, ISettings {

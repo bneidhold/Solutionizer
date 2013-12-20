@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:Converters="clr-namespace:Solutionizer.Converters" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:ViewModels="clr-namespace:Solutionizer.ViewModels" xmlns:Helper="clr-namespace:Solutionizer.Helper"
+             xmlns:ViewModels="clr-namespace:Solutionizer.ViewModels"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:Views="clr-namespace:Solutionizer.Views"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:DragDrop="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
-             xmlns:Infrastructure="clr-namespace:Solutionizer.Infrastructure"
+             xmlns:Behaviors="clr-namespace:Solutionizer.Behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance ViewModels:ProjectRepositoryViewModel}">
   <UserControl.Resources>
@@ -105,7 +105,7 @@
       DragDrop:DragDrop.IsDragSource="true" DragDrop:DragDrop.DragHandler="{Binding}"
       DragDrop:DragDrop.DragAdornerTemplate="{StaticResource ProjectItemDrag}">
       <i:Interaction.Behaviors>
-        <Infrastructure:MultipleItemSelectionAttachedBehavior SelectedItems="{Binding SelectedItems}" />
+        <Behaviors:MultipleItemSelectionAttachedBehavior SelectedItems="{Binding SelectedItems}" />
       </i:Interaction.Behaviors>
       <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseDoubleClick">

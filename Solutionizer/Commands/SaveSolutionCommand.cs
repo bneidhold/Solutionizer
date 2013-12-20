@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Solutionizer.Extensions;
-using Solutionizer.Helper;
+using Solutionizer.Infrastructure;
 using Solutionizer.Services;
 using Solutionizer.ViewModels;
 

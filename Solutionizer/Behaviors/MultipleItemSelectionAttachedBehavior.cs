@@ -6,9 +6,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interactivity;
-using Solutionizer.Helper;
+using Solutionizer.Extensions;
 
-namespace Solutionizer.Infrastructure {
+namespace Solutionizer.Behaviors {
     public class MultipleItemSelectionAttachedBehavior : Behavior<TreeView> {
         public static readonly DependencyProperty SelectedItemsProperty = DependencyProperty.RegisterAttached(
             "SelectedItems", typeof(IList), typeof(MultipleItemSelectionAttachedBehavior), new PropertyMetadata(default(IList)));
@@ -46,8 +46,10 @@ namespace Solutionizer.Infrastructure {
                 return;
             }
 
-            var treeViewItem = TreeViewHelper.GetTreeViewItem(AssociatedObject, e.NewValue);
-            if (treeViewItem == null) return;
+            var treeViewItem = AssociatedObject.GetContainer<TreeViewItem>(e.NewValue);
+            if (treeViewItem == null) {
+                return;
+            }
 
             // allow multiple selection
             // when control key is pressed

@@ -2,7 +2,7 @@
 using System.Windows.Controls.Primitives;
 using System.Windows.Interactivity;
 
-namespace Solutionizer.Infrastructure {
+namespace Solutionizer.Behaviors {
     public class ContextMenuOnLeftClickBehavior : Behavior<ButtonBase> {
         protected override void OnAttached() {
             base.OnAttached();

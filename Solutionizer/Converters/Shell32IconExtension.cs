@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Markup;
 using System.Windows.Media;
-using Solutionizer.Helper;
+using Solutionizer.Infrastructure;
 
 namespace Solutionizer.Converters {
     [MarkupExtensionReturnType(typeof (ImageSource))]
