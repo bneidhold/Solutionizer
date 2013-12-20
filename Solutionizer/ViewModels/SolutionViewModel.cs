@@ -57,15 +57,25 @@ namespace Solutionizer.ViewModels {
         }
 
         public void DragOver(IDropInfo dropInfo) {
-            if (dropInfo.Data is ProjectViewModel) {
+            if (dropInfo.Data is ProjectViewModel || dropInfo.Data is IEnumerable<ItemViewModel>) {
                 dropInfo.Effects = DragDropEffects.Copy;
             }
         }
 
         public void Drop(IDropInfo dropInfo) {
-            var project = ((ProjectViewModel)dropInfo.Data).Project;
-            project.Load();
-            AddProject(project);
+            var projectViewModel = dropInfo.Data as ProjectViewModel;
+            if (projectViewModel != null) {
+                var project = projectViewModel.Project;
+                project.Load();
+                AddProject(project);
+            }
+            var itemViewModels = dropInfo.Data as IEnumerable<ItemViewModel>;
+            if (itemViewModels != null) {
+                foreach (var project in itemViewModels.Flatten<ItemViewModel, ProjectViewModel, DirectoryViewModel>(d => d.Children).Select(vm => vm.Project)) {
+                    project.Load();
+                    AddProject(project);
+                }
+            }
         }
 
         private string GetTargetFolder() {

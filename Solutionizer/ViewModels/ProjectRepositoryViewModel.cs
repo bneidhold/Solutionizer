@@ -1,13 +1,16 @@
 ﻿using System.Collections;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
+using GongSolutions.Wpf.DragDrop;
 using Solutionizer.Extensions;
 using Solutionizer.Framework;
 using Solutionizer.Models;
 using Solutionizer.Services;
 
 namespace Solutionizer.ViewModels {
-    public class ProjectRepositoryViewModel : PropertyChangedBase {
+    public class ProjectRepositoryViewModel : PropertyChangedBase, IDragSource {
         public delegate ProjectRepositoryViewModel Factory(ICommand doubleClickCommand);
 
         private readonly ISettings _settings;
@@ -16,6 +19,7 @@ namespace Solutionizer.ViewModels {
         private IList _nodes;
         private string _filter;
         private readonly ICommand _doubleClickCommand;
+        private readonly ObservableCollection<ItemViewModel> _selectedItems = new ObservableCollection<ItemViewModel>();
 
         public ProjectRepositoryViewModel(ISettings settings, ICommand doubleClickCommand) {
             _settings = settings;
@@ -40,6 +44,10 @@ namespace Solutionizer.ViewModels {
 
         public ICommand DoubleClickCommand {
             get { return _doubleClickCommand; }
+        }
+
+        public ObservableCollection<ItemViewModel> SelectedItems {
+            get { return _selectedItems; }
         }
 
         public ProjectFolder RootFolder {
@@ -105,6 +113,17 @@ namespace Solutionizer.ViewModels {
 
         private ProjectViewModel CreateProjectViewModel(Project project, DirectoryViewModel parent) {
             return new ProjectViewModel(parent, project);
+        }
+
+        public void StartDrag(IDragInfo dragInfo) {
+            dragInfo.Data = SelectedItems.OrderBy(m => m.Name);
+            dragInfo.Effects = DragDropEffects.Copy;
+        }
+
+        public void Dropped(IDropInfo dropInfo) {
+        }
+
+        public void DragCancelled() {
         }
     }
 }
