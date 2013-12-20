@@ -23,6 +23,7 @@ namespace Solutionizer.ViewModels {
                     new CreditItem { Name = "NLog", Uri = "http://nlog-project.org/" },
                     new CreditItem { Name = "Ookii Dialogs WPF library", Uri = "http://www.ookii.org/software/dialogs/" },
                     new CreditItem { Name = "RestSharp", Uri = "http://restsharp.org/" },
+                    new CreditItem { Name = "GongSolutions.Wpf.DragDrop", Uri = "https://github.com/punker76/gong-wpf-dragdrop" },
                 };
             }
         }
