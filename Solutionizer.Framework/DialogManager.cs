@@ -31,7 +31,7 @@ namespace Solutionizer.Framework {
 
             var dialog = view as BaseMetroDialog;
             if (dialog == null) {
-                throw new InvalidOperationException(String.Format("The view {0} belonging to view model {1} does not inherit from {2}", view.GetType(), viewModel.GetType(), typeof(BaseMetroDialog)));
+                dialog = new SimpleDialog { DialogBody = view };
             }
 
             var firstMetroWindow = Application.Current.Windows.OfType<MetroWindow>().First();
